@@ -1,20 +1,14 @@
 import { Box, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import sxStyles from './sxStyles';
 
 const FindInText = () => {
     return (
-        <Box sx={{ marginTop: '1rem' }}>
+        <Box
+            sx={sxStyles.container}>
             <Button
-                sx={{
-                    background: '#3c63e3ff',
-                    color: 'white',
-                    textTransform: 'none',
-                    fontFamily: 'Inter',
-                    '&:hover': {
-                        background: '#193798ff',
-                    },
-                }}>
-                <SearchIcon />
+                sx={sxStyles.button}>
+                <SearchIcon sx={{marginRight: '.4rem'}} />
                 Find Words
             </Button>
         </Box>

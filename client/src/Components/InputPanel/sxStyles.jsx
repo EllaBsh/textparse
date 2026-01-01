@@ -15,7 +15,6 @@ const sxStyles = {
         fontWeight: '600',
         fontSize: '1.2rem',
         color: '#333C47',
-        marginBottom: '.8rem',
     },
 };
 

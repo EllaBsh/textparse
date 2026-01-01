@@ -1,9 +1,9 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Typography } from '@mui/material';
-import InputPanel from '../InputPanel/InputPanel';
-import sxStyles from './sxStyles';
-import OutputPanel from '../OutputPanel/OutputPanel';
 import FindInText from '../Buttons/FindInText/FindInText';
+import InputPanel from '../InputPanel/InputPanel';
+import OutputPanel from '../OutputPanel/OutputPanel';
+import sxStyles from './sxStyles';
 
 const AppWrapper = () => {
     return (

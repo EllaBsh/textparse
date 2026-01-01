@@ -1,6 +1,5 @@
-import { Box, TextField, Typography } from '@mui/material';
-import ClearText from '../Buttons/ClearText/ClearText';
-import CopyText from '../Buttons/CopyText/CopyText';
+import { Box, Typography } from '@mui/material';
+import UnseenTextField from '../UnseenTextField/UnseenTextField';
 import Links from './Links/Links';
 import Lists from './Lists/Lists';
 import sxStyles from './sxStyles';
@@ -8,28 +7,12 @@ import sxStyles from './sxStyles';
 const OutputPanel = () => {
     return (
         <Box>
-            <Box sx={sxStyles.inputPanel}>
+            <Box sx={sxStyles.outputPanel}>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Typography sx={sxStyles.textboxTitle}>
+                    <Typography sx={sxStyles.unseenTextBoxTitle}>
                         Highlighted Words in Text
                     </Typography>
-                    <TextField
-                        rows={8}
-                        multiline
-                        disabled
-                        sx={{
-                            width: '44vw',
-                            '& .MuiInputBase-root': { borderRadius: '.6rem' },
-                        }}
-                    />
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                        }}>
-                        <ClearText />
-                        <CopyText />
-                    </Box>
+                    <UnseenTextField isInput={false} />
                 </Box>
             </Box>
             <Box

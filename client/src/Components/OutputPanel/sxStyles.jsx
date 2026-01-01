@@ -1,5 +1,5 @@
 const sxStyles = {
-    inputPanel: {
+    outputPanel: {
         backgroundColor: 'white',
         width: 'fit-content',
         height: 'fit-content',
@@ -9,7 +9,7 @@ const sxStyles = {
         flexDirection: 'column',
         boxShadow: '0 0 .2rem #cbcacaff',
     },
-    textboxTitle: {
+    unseenTextBoxTitle: {
         fontFamily: 'Inter',
         fontWeight: '600',
         fontSize: '1.2rem',

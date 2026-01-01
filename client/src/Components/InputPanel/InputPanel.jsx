@@ -1,42 +1,44 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
-import sxStyles from './sxStyles';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import { Box, TextField, Tooltip, Typography } from '@mui/material';
 import ClearText from '../Buttons/ClearText/ClearText';
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CopyText from '../Buttons/CopyText/CopyText';
+import UnseenTextField from '../UnseenTextField/UnseenTextField';
+import sxStyles from './sxStyles';
 
 const InputPanel = () => {
     return (
         <Box sx={sxStyles.inputPanel}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography sx={sxStyles.textboxTitle}>Your Text</Typography>
-                <TextField
-                    rows={8}
-                    multiline
-                    placeholder='Paste your text here...'
-                    sx={{
-                        width: '44vw',
-                        '& .MuiInputBase-root': {
-                            borderRadius: '.6rem',
-                        },
-                    }}
-                />
                 <Box
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
                         justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '.8rem',
                     }}>
-                    <ClearText />
-                    <Button
-                        sx={{
-                            textTransform: 'none',
-                            color: '#5113b5ff',
-                            fontSize: '1rem',
-                        }}>
-                        <FileUploadOutlinedIcon sx={{ fontSize: '1.2rem' }} />
-                        Upload Text File
-                    </Button>
+                    <Typography sx={sxStyles.textboxTitle}>
+                        Your Text
+                    </Typography>
+                    <Tooltip
+                        arrow
+                        title={
+                            <Typography
+                                sx={{
+                                    fontFamily: 'Inter',
+                                    fontSize: '.8rem',
+                                    textAlign: 'center',
+                                }}>
+                                Paste your text and word list to find and
+                                highlight the words in the text
+                            </Typography>
+                        }>
+                        <HelpOutlineOutlinedIcon
+                            sx={{ fontSize: '1.2rem', color: '#8d939eff' }}
+                        />
+                    </Tooltip>
                 </Box>
+                <UnseenTextField isInput={true} />
             </Box>
             <Box
                 sx={{
@@ -63,6 +65,8 @@ const InputPanel = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
+                        width: '14rem',
+                        justifyContent: 'space-between',
                     }}>
                     <ClearText />
                     <CopyText />

@@ -1,7 +1,8 @@
 const sxStyles = {
     wrapper: {
         backgroundColor: '#EFF1F4',
-        padding: '2rem',
+        padding: '2rem 2rem 0 2rem',
+        height: '95vh',
     },
     iconContainer: {
         background: 'linear-gradient(45deg, #2685c4ff, #5da3cfff)',

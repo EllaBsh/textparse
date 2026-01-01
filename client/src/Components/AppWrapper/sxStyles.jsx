@@ -1,7 +1,6 @@
 const sxStyles = {
     wrapper: {
         backgroundColor: '#EFF1F4',
-        height: '100vh',
         padding: '2rem',
     },
     iconContainer: {

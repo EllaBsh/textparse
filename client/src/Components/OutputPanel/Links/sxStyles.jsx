@@ -8,7 +8,6 @@ const sxStyles = {
         display: 'flex',
         flexDirection: 'column',
         boxShadow: '0 0 .2rem #cbcacaff',
-        // marginRight: '1rem'
     },
     textboxTitle: {
         fontFamily: 'Inter',

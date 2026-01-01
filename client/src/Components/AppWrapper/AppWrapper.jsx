@@ -1,7 +1,9 @@
-import { Box, Icon, Typography } from '@mui/material';
-import sxStyles from './sxStyles';
-import InputPanel from '../InputPanel/InputPanel';
 import SearchIcon from '@mui/icons-material/Search';
+import { Box, Typography } from '@mui/material';
+import InputPanel from '../InputPanel/InputPanel';
+import sxStyles from './sxStyles';
+import OutputPanel from '../OutputPanel/OutputPanel';
+import FindInText from '../Buttons/FindInText/FindInText';
 
 const AppWrapper = () => {
     return (
@@ -12,6 +14,7 @@ const AppWrapper = () => {
                         display: 'flex',
                         flexDirection: 'row',
                         alignItems: 'center',
+                        marginBottom: '1rem',
                     }}>
                     <Box sx={sxStyles.iconContainer}>
                         <SearchIcon sx={sxStyles.icon} />
@@ -20,13 +23,22 @@ const AppWrapper = () => {
                         Find Words in Text
                     </Typography>
                 </Box>
-                <Typography sx={sxStyles.subTitle}>
+                {/* <Typography sx={sxStyles.subTitle}>
                     Paste your text and word list to find and highlight the
                     words in the text
-                </Typography>
+                </Typography> */}
             </Box>
-            <Box>
-                <InputPanel />
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <InputPanel />
+                    <FindInText />
+                </Box>
+                <OutputPanel />
             </Box>
         </Box>
     );

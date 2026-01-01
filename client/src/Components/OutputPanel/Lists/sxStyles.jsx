@@ -2,13 +2,12 @@ const sxStyles = {
     inputPanel: {
         backgroundColor: 'white',
         width: 'fit-content',
-        height: 'fit-content',
+        height: '12rem',
         borderRadius: '1rem',
         padding: '1.2rem',
         display: 'flex',
         flexDirection: 'column',
         boxShadow: '0 0 .2rem #cbcacaff',
-        // marginRight: '1rem'
     },
     textboxTitle: {
         fontFamily: 'Inter',

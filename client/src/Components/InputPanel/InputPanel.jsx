@@ -1,5 +1,8 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import sxStyles from './sxStyles';
+import ClearText from '../Buttons/ClearText/ClearText';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import CopyText from '../Buttons/CopyText/CopyText';
 
 const InputPanel = () => {
     return (
@@ -11,43 +14,59 @@ const InputPanel = () => {
                     multiline
                     placeholder='Paste your text here...'
                     sx={{
-                        width: '45vw',
-                        '& .MuiInputBase-root': { borderRadius: '.6rem' },
-                    }}
-                />
-                <Button
-                    sx={{
-                        background: '#F2F3F6',
-                        width: 'fit-content',
-                        margin: '.5rem 0',
-                        textTransform: 'none',
-                        fontFamily: 'Inter',
-                        color: '#586373ff',
-                        padding: '.1rem 1rem',
-                        border: '1px solid #d4d6d7ff',
-                        '&:hover': {
-                            background: '#e6e6e8ff',
+                        width: '44vw',
+                        '& .MuiInputBase-root': {
+                            borderRadius: '.6rem',
                         },
                     }}
-                    disableRipple
-                    disableTouchRipple>
-                    Clear Text
-                </Button>
+                />
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}>
+                    <ClearText />
+                    <Button
+                        sx={{
+                            textTransform: 'none',
+                            color: '#5113b5ff',
+                            fontSize: '1rem',
+                        }}>
+                        <FileUploadOutlinedIcon sx={{ fontSize: '1.2rem' }} />
+                        Upload Text File
+                    </Button>
+                </Box>
             </Box>
-            <Button>dropzone</Button>
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography sx={sxStyles.textboxTitle}>Word List</Typography>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    marginTop: '1.5rem',
+                }}>
+                <Box>
+                    <Typography sx={sxStyles.textboxTitle}>
+                        Word List
+                    </Typography>
+                </Box>
                 <TextField
                     placeholder='Enter a word here...'
                     sx={{
-                        width: '45vw',
+                        width: '44vw',
                         '& .MuiInputBase-root': {
                             borderRadius: '.6rem',
                             height: '2.5rem',
                         },
                     }}
                 />
-                <Button>Load Lists</Button>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                    }}>
+                    <ClearText />
+                    <CopyText />
+                </Box>
             </Box>
         </Box>
     );

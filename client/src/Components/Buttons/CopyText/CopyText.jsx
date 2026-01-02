@@ -1,9 +1,15 @@
 import { Button } from '@mui/material';
 import sxStyles from './sxStyles';
 
-const CopyText = () => {
+const CopyText = ({ text }) => {
     return (
-        <Button sx={sxStyles.button} disableRipple disableTouchRipple>
+        <Button
+            onClick={() => {
+                navigator.clipboard.writeText(text);
+            }}
+            sx={sxStyles.button}
+            disableRipple
+            disableTouchRipple>
             Copy Text
         </Button>
     );

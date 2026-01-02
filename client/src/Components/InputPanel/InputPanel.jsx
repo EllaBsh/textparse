@@ -5,7 +5,7 @@ import CopyText from '../Buttons/CopyText/CopyText';
 import UnseenTextField from '../UnseenTextField/UnseenTextField';
 import sxStyles from './sxStyles';
 
-const InputPanel = () => {
+const InputPanel = ({ unseenText, setUnseenText, wordList, setWordList }) => {
     return (
         <Box sx={sxStyles.inputPanel}>
             <Box sx={sxStyles.yourTextContainer}>
@@ -24,14 +24,13 @@ const InputPanel = () => {
                         <HelpOutlineOutlinedIcon sx={sxStyles.icon} />
                     </Tooltip>
                 </Box>
-                <UnseenTextField isInput={true} />
+                <UnseenTextField
+                    isInput={true}
+                    unseenText={unseenText}
+                    setUnseenText={setUnseenText}
+                />
             </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    marginTop: '1.5rem',
-                }}>
+            <Box sx={sxStyles.wordListContainer}>
                 <Box>
                     <Typography sx={sxStyles.componentTitle}>
                         Word List
@@ -39,11 +38,13 @@ const InputPanel = () => {
                 </Box>
                 <TextField
                     placeholder='Enter words separated by commas (e.g., Austen, Woolf, Christie)'
+                    value={wordList}
+                    onChange={(event) => setWordList(event.target.value)}
                     sx={sxStyles.wordListTextField}
                 />
                 <Box sx={sxStyles.actionButtonsContainer}>
-                    <ClearText />
-                    <CopyText />
+                    <ClearText setText={setWordList} />
+                    <CopyText text={wordList} />
                 </Box>
             </Box>
         </Box>

@@ -5,7 +5,7 @@ import DownloadFile from '../Buttons/FileActions/DownloadFile';
 import UploadFile from '../Buttons/FileActions/UploadFile';
 import sxStyles from './sxStyles';
 
-const UnseenTextField = ({ isInput }) => {
+const UnseenTextField = ({ isInput, unseenText, setUnseenText }) => {
     return (
         <Box>
             <TextField
@@ -13,11 +13,21 @@ const UnseenTextField = ({ isInput }) => {
                 multiline
                 placeholder={isInput ? 'Paste your text here...' : ''}
                 disabled={!isInput}
+                value={unseenText}
+                onChange={(event) => setUnseenText(event.target.value)}
                 sx={sxStyles.textField}
             />
             <Box sx={sxStyles.actionButtonsContainer}>
-                {isInput ? <ClearText /> : <CopyText />}
-                {isInput ? <UploadFile /> : <DownloadFile />}
+                {isInput ? (
+                    <ClearText setText={setUnseenText} />
+                ) : (
+                    <CopyText text={unseenText} />
+                )}
+                {isInput ? (
+                    <UploadFile setUnseenText={setUnseenText} />
+                ) : (
+                    <DownloadFile />
+                )}
             </Box>
         </Box>
     );

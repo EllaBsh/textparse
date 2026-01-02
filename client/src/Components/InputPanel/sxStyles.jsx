@@ -35,6 +35,11 @@ const sxStyles = {
         fontSize: '1.2rem',
         color: '#8d939eff',
     },
+    wordListContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: '1.5rem',
+    },
     wordListTextField: {
         width: '44vw',
         '& .MuiInputBase-root': {

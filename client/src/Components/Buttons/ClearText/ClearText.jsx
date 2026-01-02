@@ -1,9 +1,13 @@
 import { Button } from '@mui/material';
 import sxStyles from './sxStyles';
 
-const ClearText = () => {
+const ClearText = ({ setText }) => {
     return (
-        <Button sx={sxStyles.button} disableRipple disableTouchRipple>
+        <Button
+            onClick={() => setText('')}
+            sx={sxStyles.button}
+            disableRipple
+            disableTouchRipple>
             Clear Text
         </Button>
     );

@@ -1,5 +1,5 @@
-import sxStyles from './sxStyles';
 import { Button } from '@mui/material';
+import sxStyles from './sxStyles';
 
 const CopyText = () => {
     return (

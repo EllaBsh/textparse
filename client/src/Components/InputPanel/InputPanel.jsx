@@ -8,34 +8,20 @@ import sxStyles from './sxStyles';
 const InputPanel = () => {
     return (
         <Box sx={sxStyles.inputPanel}>
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        marginBottom: '.8rem',
-                    }}>
-                    <Typography sx={sxStyles.textboxTitle}>
+            <Box sx={sxStyles.yourTextContainer}>
+                <Box sx={sxStyles.yourTextTitleContainer}>
+                    <Typography sx={sxStyles.componentTitle}>
                         Your Text
                     </Typography>
                     <Tooltip
                         arrow
                         title={
-                            <Typography
-                                sx={{
-                                    fontFamily: 'Inter',
-                                    fontSize: '.8rem',
-                                    textAlign: 'center',
-                                }}>
+                            <Typography sx={sxStyles.tooltipText}>
                                 Paste your text and word list to find and
                                 highlight the words in the text
                             </Typography>
                         }>
-                        <HelpOutlineOutlinedIcon
-                            sx={{ fontSize: '1.2rem', color: '#8d939eff' }}
-                        />
+                        <HelpOutlineOutlinedIcon sx={sxStyles.icon} />
                     </Tooltip>
                 </Box>
                 <UnseenTextField isInput={true} />
@@ -47,27 +33,15 @@ const InputPanel = () => {
                     marginTop: '1.5rem',
                 }}>
                 <Box>
-                    <Typography sx={sxStyles.textboxTitle}>
+                    <Typography sx={sxStyles.componentTitle}>
                         Word List
                     </Typography>
                 </Box>
                 <TextField
-                    placeholder='Enter a word here...'
-                    sx={{
-                        width: '44vw',
-                        '& .MuiInputBase-root': {
-                            borderRadius: '.6rem',
-                            height: '2.5rem',
-                        },
-                    }}
+                    placeholder='Enter words separated by commas (e.g., Austen, Woolf, Christie)'
+                    sx={sxStyles.wordListTextField}
                 />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        width: '14rem',
-                        justifyContent: 'space-between',
-                    }}>
+                <Box sx={sxStyles.actionButtonsContainer}>
                     <ClearText />
                     <CopyText />
                 </Box>

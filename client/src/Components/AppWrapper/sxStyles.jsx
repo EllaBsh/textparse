@@ -4,6 +4,12 @@ const sxStyles = {
         padding: '2rem 2rem 0 2rem',
         height: '95vh',
     },
+    titleContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: '1rem',
+    },
     iconContainer: {
         background: 'linear-gradient(45deg, #2685c4ff, #5da3cfff)',
         borderRadius: '50%',
@@ -24,12 +30,14 @@ const sxStyles = {
         fontSize: '1.6rem',
         marginLeft: '.5rem',
     },
-    subTitle: {
-        color: '#8d939eff',
-        fontFamily: 'Inter',
-        fontWeight: '400',
-        fontSize: '1rem',
-        margin: '.5rem 0 1rem 0',
+    panelsContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    inputPanelContainer: {
+        display: 'flex',
+        flexDirection: 'column',
     },
 };
 

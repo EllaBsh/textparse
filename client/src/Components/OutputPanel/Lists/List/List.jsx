@@ -1,15 +1,10 @@
 import { Checkbox, FormControlLabel } from '@mui/material';
+import sxStyles from './sxStyles';
 
 const List = ({ listName }) => {
     return (
         <FormControlLabel
-            sx={{
-                '& .MuiFormControlLabel-label': {
-                    fontFamily: 'Inter',
-                    fontSize: '1rem',
-                },
-                '&.MuiFormControlLabel-root': {},
-            }}
+            sx={sxStyles.formControl}
             control={<Checkbox checked={false} size='small' />}
             label={listName}
         />

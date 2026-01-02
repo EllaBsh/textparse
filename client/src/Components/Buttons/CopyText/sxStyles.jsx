@@ -7,7 +7,7 @@ const sxStyles = {
         fontFamily: 'Inter',
         color: '#586373ff',
         padding: '.1rem 1rem',
-        border: '1px solid #d4d6d7ff',
+        border: '1 solid #d4d6d7ff',
         boxShadow: '0 0 .08rem #cbcacaff',
         '&:hover': {
             background: '#cbf7c9c0',

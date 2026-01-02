@@ -21,6 +21,9 @@ const sxStyles = {
         // width: '85%',
         // margin: 'auto'
     },
+    icon: {
+        marginRight: '.4rem',
+    },
 };
 
 export default sxStyles;

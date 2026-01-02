@@ -1,8 +1,8 @@
 import { Box, TextField } from '@mui/material';
 import ClearText from '../Buttons/ClearText/ClearText';
-import DownloadFile from '../Buttons/DownloadFile/DownloadFile';
-import UploadFile from '../Buttons/UploadFile/UploadFile';
 import CopyText from '../Buttons/CopyText/CopyText';
+import DownloadFile from '../Buttons/FileActions/DownloadFile';
+import UploadFile from '../Buttons/FileActions/UploadFile';
 import sxStyles from './sxStyles';
 
 const UnseenTextField = ({ isInput }) => {
@@ -15,8 +15,7 @@ const UnseenTextField = ({ isInput }) => {
                 disabled={!isInput}
                 sx={sxStyles.textField}
             />
-            <Box
-                sx={sxStyles.actionButtonsContainer}>
+            <Box sx={sxStyles.actionButtonsContainer}>
                 {isInput ? <ClearText /> : <CopyText />}
                 {isInput ? <UploadFile /> : <DownloadFile />}
             </Box>

@@ -8,20 +8,14 @@ const OutputPanel = () => {
     return (
         <Box>
             <Box sx={sxStyles.outputPanel}>
-                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Typography sx={sxStyles.unseenTextBoxTitle}>
+                <Box sx={sxStyles.componentTitleContainer}>
+                    <Typography sx={sxStyles.componentTitle}>
                         Highlighted Words in Text
                     </Typography>
                     <UnseenTextField isInput={false} />
                 </Box>
             </Box>
-            <Box
-                sx={{
-                    marginTop: '1rem',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                }}>
+            <Box sx={sxStyles.bottomPanelsContainer}>
                 <Lists />
                 <Links />
             </Box>

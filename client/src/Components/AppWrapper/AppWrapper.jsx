@@ -1,14 +1,22 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Typography } from '@mui/material';
-import FindInText from '../Buttons/FindInText/FindInText';
+import { useState } from 'react';
+import { useWordSegments } from '../../utils/useWordSegments';
 import InputPanel from '../InputPanel/InputPanel';
 import OutputPanel from '../OutputPanel/OutputPanel';
 import sxStyles from './sxStyles';
-import { useState } from 'react';
 
 const AppWrapper = () => {
     const [unseenText, setUnseenText] = useState('');
-    const [wordList, setWordList] = useState('');
+    const [manualWords, setManualWords] = useState('');
+    const [activeWordLists, setactiveWordLists] = useState({});
+    const [highlightedText, setHighlightedText] = useState('');
+    const { textValue, handleTextChange } = useWordSegments({
+        manualWords,
+        setManualWords,
+        activeWordLists,
+        setactiveWordLists,
+    });
 
     return (
         <Box sx={sxStyles.wrapper}>
@@ -23,12 +31,20 @@ const AppWrapper = () => {
                     <InputPanel
                         unseenText={unseenText}
                         setUnseenText={setUnseenText}
-                        wordList={wordList}
-                        setWordList={setWordList}
+                        manualWords={manualWords}
+                        setManualWords={setManualWords}
+                        activeWordLists={activeWordLists}
+                        setHighlightedText={setHighlightedText}
+                        textValue={textValue}
+                        handleTextChange={handleTextChange}
                     />
-                    <FindInText />
                 </Box>
-                <OutputPanel />
+                <OutputPanel
+                    highlightedText={highlightedText}
+                    setHighlightedText={setHighlightedText}
+                    activeWordLists={activeWordLists}
+                    setactiveWordLists={setactiveWordLists}
+                />
             </Box>
         </Box>
     );

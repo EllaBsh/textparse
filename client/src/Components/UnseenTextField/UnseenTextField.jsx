@@ -12,9 +12,11 @@ const UnseenTextField = ({ isInput, unseenText, setUnseenText }) => {
                 rows={8}
                 multiline
                 placeholder={isInput ? 'Paste your text here...' : ''}
-                disabled={!isInput}
+                disabled={!isInput && unseenText === ''}
                 value={unseenText}
-                onChange={(event) => setUnseenText(event.target.value)}
+                onChange={(event) => {
+                    setUnseenText(event.target.value);
+                }}
                 sx={sxStyles.textField}
             />
             <Box sx={sxStyles.actionButtonsContainer}>

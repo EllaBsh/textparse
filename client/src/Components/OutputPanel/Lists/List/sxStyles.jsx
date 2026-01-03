@@ -1,11 +1,13 @@
 const sxStyles = {
-    formControl: {
+    formControl: (color) => ({
         '& .MuiFormControlLabel-label': {
             fontFamily: 'Inter',
             fontSize: '1rem',
         },
-        '&.MuiFormControlLabel-root': {},
-    },
+        '& .Mui-checked': {
+            color: color,
+        },
+    }),
 };
 
 export default sxStyles;

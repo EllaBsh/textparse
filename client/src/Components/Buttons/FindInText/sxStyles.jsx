@@ -1,28 +1,17 @@
 const sxStyles = {
-    container: {
-        marginTop: '1rem',
-        backgroundColor: 'white',
-        height: 'fit-content',
-        borderRadius: '1rem',
-        padding: '1.2rem',
-        display: 'flex',
-        flexDirection: 'column',
-        boxShadow: '0 0 .2rem #cbcacaff',
-    },
     button: {
         background: '#3c63e3ff',
         color: 'white',
         textTransform: 'none',
         fontFamily: 'Inter',
         borderRadius: '.7rem',
+        boxShadow: '0 0 .2rem #cbcacaff',
+        marginTop: '.5rem',
+        padding: '0 1rem',
+        fontSize: '1rem',
         '&:hover': {
             background: '#193798ff',
         },
-        // width: '85%',
-        // margin: 'auto'
-    },
-    icon: {
-        marginRight: '.4rem',
     },
 };
 

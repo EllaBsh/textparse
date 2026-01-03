@@ -4,7 +4,12 @@ import Links from './Links/Links';
 import Lists from './Lists/Lists';
 import sxStyles from './sxStyles';
 
-const OutputPanel = () => {
+const OutputPanel = ({
+    highlightedText,
+    setHighlightedText,
+    activeWordLists,
+    setactiveWordLists,
+}) => {
     return (
         <Box>
             <Box sx={sxStyles.outputPanel}>
@@ -12,11 +17,18 @@ const OutputPanel = () => {
                     <Typography sx={sxStyles.componentTitle}>
                         Highlighted Words in Text
                     </Typography>
-                    <UnseenTextField isInput={false} />
+                    <UnseenTextField
+                        isInput={false}
+                        unseenText={highlightedText}
+                        setUnseenText={setHighlightedText}
+                    />
                 </Box>
             </Box>
             <Box sx={sxStyles.bottomPanelsContainer}>
-                <Lists />
+                <Lists
+                    activeWordLists={activeWordLists}
+                    setactiveWordLists={setactiveWordLists}
+                />
                 <Links />
             </Box>
         </Box>

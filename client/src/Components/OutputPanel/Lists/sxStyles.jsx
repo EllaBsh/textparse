@@ -20,13 +20,7 @@ const sxStyles = {
         display: 'flex',
         flexDirection: 'row',
     },
-    leftSideContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    rightSideContainer: {
-        display: 'flex',
-        flexDirection: 'column',
+    secondRowContainer: {
         marginLeft: '1rem',
     },
 };

@@ -38,14 +38,21 @@ const sxStyles = {
     wordListContainer: {
         display: 'flex',
         flexDirection: 'column',
-        marginTop: '1.5rem',
+        marginTop: '1rem',
+    },
+    wordListTitleContainer: {
+        marginBottom: '.4rem',
     },
     wordListTextField: {
         width: '44vw',
         '& .MuiInputBase-root': {
             borderRadius: '.6rem',
-            height: '2.5rem',
         },
+    },
+    buttonsContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     actionButtonsContainer: {
         display: 'flex',

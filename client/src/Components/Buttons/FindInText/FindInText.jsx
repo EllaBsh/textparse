@@ -1,12 +1,10 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { Box, Button } from '@mui/material';
-import sxStyles from './sxStyles';
-import Highlighter from 'react-highlight-words';
-import { useState } from 'react';
+import { Button } from '@mui/material';
 import {
     findInText,
     highlightWordsInText,
 } from '../../../utils/highlightUtils';
+import sxStyles from './sxStyles';
 
 const FindInText = ({
     unseenText,
@@ -15,13 +13,23 @@ const FindInText = ({
     setHighlightedText,
     matches,
     setMatches,
+    setWordsFound,
 }) => {
+    const getUniqueWords = () => {
+        const wordsFound = new Set([]);
+        for (const [wordList] of Object.values(matches)) {
+            for (const word of wordList) {
+                wordsFound.add(word);
+            }
+        }
+        return [...wordsFound];
+    };
+
     const handleClick = () => {
         const tempMatches = findInText(unseenText, activeWordLists);
         setMatches(tempMatches);
-        setHighlightedText(
-            highlightWordsInText(unseenText, tempMatches)
-        );
+        setHighlightedText(highlightWordsInText(unseenText, tempMatches));
+        setWordsFound(getUniqueWords());
     };
 
     return (

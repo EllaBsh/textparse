@@ -18,6 +18,7 @@ const InputPanel = ({
     handleWordListTextChange,
     matches,
     setMatches,
+    setWordsFound
 }) => {
     const [draftText, setDraftText] = useState('');
 
@@ -78,6 +79,7 @@ const InputPanel = ({
                         setHighlightedText={setHighlightedText}
                         matches={matches}
                         setMatches={setMatches}
+                        setWordsFound={setWordsFound}
                     />
                 </Box>
             </Box>

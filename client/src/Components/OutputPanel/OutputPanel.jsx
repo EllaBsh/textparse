@@ -1,15 +1,15 @@
 import { Box, Typography } from '@mui/material';
-import UnseenTextField from '../UnseenTextField/UnseenTextField';
+import CopyText from '../Buttons/CopyText/CopyText';
 import Links from './Links/Links';
 import Lists from './Lists/Lists';
 import sxStyles from './sxStyles';
-import CopyText from '../Buttons/CopyText/CopyText';
 
 const OutputPanel = ({
     highlightedText,
     activeWordLists,
     setactiveWordLists,
-    matches
+    matches,
+    wordsFound
 }) => {
     return (
         <Box>
@@ -32,7 +32,7 @@ const OutputPanel = ({
                     activeWordLists={activeWordLists}
                     setactiveWordLists={setactiveWordLists}
                 />
-                <Links matches={matches}/>
+                <Links wordsFound={wordsFound}/>
             </Box>
         </Box>
     );

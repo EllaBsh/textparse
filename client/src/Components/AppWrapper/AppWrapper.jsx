@@ -18,6 +18,7 @@ const AppWrapper = () => {
         setactiveWordLists,
     });
     const [matches, setMatches] = useState({});
+    const [wordsFound, setWordsFound] = useState([]);
 
     return (
         <Box sx={sxStyles.wrapper}>
@@ -40,6 +41,7 @@ const AppWrapper = () => {
                         handleWordListTextChange={handleWordListTextChange}
                         matches={matches}
                         setMatches={setMatches}
+                        setWordsFound={setWordsFound}
                     />
                 </Box>
                 <OutputPanel
@@ -47,6 +49,7 @@ const AppWrapper = () => {
                     activeWordLists={activeWordLists}
                     setactiveWordLists={setactiveWordLists}
                     matches={matches}
+                    wordsFound={wordsFound}
                 />
             </Box>
         </Box>

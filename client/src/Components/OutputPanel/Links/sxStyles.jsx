@@ -2,7 +2,7 @@ const sxStyles = {
     linksComponent: {
         backgroundColor: 'white',
         width: 'fit-content',
-        height: 'fit-content',
+        height: '12rem',
         borderRadius: '1rem',
         padding: '1.2rem',
         display: 'flex',
@@ -17,10 +17,12 @@ const sxStyles = {
         marginBottom: '.8rem',
     },
     textField: {
-        width: '100%',
-        '& .MuiInputBase-root': {
-            borderRadius: '.6rem',
-        },
+        width: '18rem',
+        borderRadius: '.6rem',
+        border: '.063rem solid #c8c5c5ff',
+        height: '80%',
+        overflow: 'auto',
+        lineHeight: '1.5rem',
     },
 };
 

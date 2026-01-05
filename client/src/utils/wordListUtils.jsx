@@ -8,12 +8,12 @@ import listD from '../Assets/BandWords/listD.txt';
 import preBand from '../Assets/BandWords/preBand.txt';
 
 export const LISTS_DATA = {
-    preBand: { file: preBand, color: 'hotpink' },
+    preBand: { file: preBand, color: '#1976D2' },
     bandI: { file: bandI, color: 'orange' },
     bandII: { file: bandII, color: 'yellow' },
-    bandIII: { file: bandIII, color: 'green' },
+    bandIII: { file: bandIII, color: '#0ea00eff' },
     listA: { file: listA, color: 'lightblue' },
-    listB: { file: listB, color: 'blue' },
+    listB: { file: listB, color: 'hotpink' },
     listC: { file: listC, color: 'purple' },
     listD: { file: listD, color: 'pink' },
 };

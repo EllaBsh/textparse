@@ -1,5 +1,9 @@
 import { Checkbox, FormControlLabel } from '@mui/material';
-import { activeListsToText, LISTS_DATA, loadWordsFromUrl } from '../../../../utils/wordListUtils';
+import {
+    activeListsToText,
+    LISTS_DATA,
+    loadWordsFromUrl,
+} from '../../../../utils/wordListUtils';
 import sxStyles from './sxStyles';
 
 const List = ({
@@ -8,7 +12,6 @@ const List = ({
     setLists,
     setActiveWordLists,
     checked,
-    color,
     setWordListTextValue,
 }) => {
     const handleChange = async () => {
@@ -54,7 +57,7 @@ const List = ({
 
     return (
         <FormControlLabel
-            sx={sxStyles.formControl(color)}
+            sx={sxStyles.formControl(LISTS_DATA[listName].color)}
             control={
                 <Checkbox
                     checked={checked}

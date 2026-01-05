@@ -1,5 +1,4 @@
 import { Box, FormControl, FormGroup, Typography } from '@mui/material';
-import { LISTS_DATA } from '../../../utils/wordListUtils';
 import List from './List/List';
 import sxStyles from './sxStyles';
 
@@ -22,7 +21,6 @@ const Lists = ({
                                 setLists={setLists}
                                 setActiveWordLists={setActiveWordLists}
                                 checked={lists.preBand.checked}
-                                color={LISTS_DATA.preBand?.color}
                                 setWordListTextValue={setWordListTextValue}
                             />
                             <List
@@ -31,7 +29,6 @@ const Lists = ({
                                 setLists={setLists}
                                 setActiveWordLists={setActiveWordLists}
                                 checked={lists.bandI?.checked}
-                                color={LISTS_DATA.bandI?.color}
                                 setWordListTextValue={setWordListTextValue}
                             />
                             <List
@@ -40,7 +37,6 @@ const Lists = ({
                                 setLists={setLists}
                                 setActiveWordLists={setActiveWordLists}
                                 checked={lists.bandII?.checked}
-                                color={LISTS_DATA.bandII?.color}
                                 setWordListTextValue={setWordListTextValue}
                             />
                             <List
@@ -49,7 +45,6 @@ const Lists = ({
                                 setLists={setLists}
                                 setActiveWordLists={setActiveWordLists}
                                 checked={lists.bandIII?.checked}
-                                color={LISTS_DATA.bandIII?.color}
                                 setWordListTextValue={setWordListTextValue}
                             />
                         </FormGroup>
@@ -61,7 +56,6 @@ const Lists = ({
                                     setLists={setLists}
                                     setActiveWordLists={setActiveWordLists}
                                     checked={lists.listA?.checked}
-                                    color={LISTS_DATA.listA?.color}
                                     setWordListTextValue={setWordListTextValue}
                                 />
                                 <List
@@ -70,7 +64,6 @@ const Lists = ({
                                     setLists={setLists}
                                     setActiveWordLists={setActiveWordLists}
                                     checked={lists.listB?.checked}
-                                    color={LISTS_DATA.listB?.color}
                                     setWordListTextValue={setWordListTextValue}
                                 />
                             </FormGroup>
@@ -81,7 +74,6 @@ const Lists = ({
                                     setLists={setLists}
                                     setActiveWordLists={setActiveWordLists}
                                     checked={lists.listC?.checked}
-                                    color={LISTS_DATA.listC?.color}
                                     setWordListTextValue={setWordListTextValue}
                                 />
                                 <List
@@ -90,7 +82,6 @@ const Lists = ({
                                     setLists={setLists}
                                     setActiveWordLists={setActiveWordLists}
                                     checked={lists.listD?.checked}
-                                    color={LISTS_DATA.listD?.color}
                                     setWordListTextValue={setWordListTextValue}
                                 />
                             </FormGroup>

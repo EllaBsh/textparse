@@ -13,8 +13,8 @@ const sortWordList = (wordList) => {
 export const findInText = (text, activeWordLists) => {
     const matches = {};
     const wordsFound = [];
-
-    for (const [listName, wordList] of Object.entries(activeWordLists)) {
+    const updatedActiveLists = isolateManual(activeWordLists);
+    for (const [listName, wordList] of Object.entries(updatedActiveLists)) {
         const sortedList = sortWordList(wordList);
         for (const word of sortedList) {
             const regex = new RegExp(`\\b(${word})\\b`, 'i');
@@ -31,12 +31,32 @@ export const findInText = (text, activeWordLists) => {
     return matches;
 };
 
+const isolateManual = (activeWordLists) => {
+    // currently if user adds words manually and checks lists,
+    // 'manual' in activeWordLists saves all active lists and manually added words in a string in an array
+    // isolating the unique words in 'manual' lets us highlight differently the those words.
+    const otherWords = Object.entries(activeWordLists)
+        .filter(([key]) => key !== 'manual')
+        .flatMap(([, words]) => words);
+
+    const otherWordsSet = new Set(otherWords.map((w) => w.toLowerCase()));
+
+    const newManual = (activeWordLists.manual || []).filter(
+        (word) => !otherWordsSet.has(word.toLowerCase())
+    );
+
+    return {
+        ...activeWordLists,
+        manual: newManual,
+    };
+};
+
 const highlightWord = (word, listName) => {
     return (
         <mark
             key={`${listName}-${word}`}
             style={{
-                backgroundColor: LISTS_DATA.listName.color || '#ffd54f',
+                backgroundColor: LISTS_DATA[listName]?.color || '#ffd54f',
                 padding: '0 .063rem',
                 borderRadius: '.188rem',
             }}>

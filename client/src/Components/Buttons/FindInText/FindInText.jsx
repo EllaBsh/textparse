@@ -8,7 +8,6 @@ import sxStyles from './sxStyles';
 
 const FindInText = ({
     unseenText,
-    manualWords,
     activeWordLists,
     setHighlightedText,
     matches,
@@ -31,18 +30,22 @@ const FindInText = ({
         setHighlightedText(highlightWordsInText(unseenText, tempMatches));
         setWordsFound(getUniqueWords());
     };
+    const isWordListTextFieldEmpty = () => {
+        if (!activeWordLists.manual || activeWordLists.manual.length > 0) {
+            return false;
+        }
+
+        return Object.entries(activeWordLists).every(
+            ([key, words]) => key === 'manual' || !words || words.length === 0
+        );
+    };
 
     return (
         <Button
             onClick={handleClick}
             sx={sxStyles.button}
             disableFocusRipple
-            // disabled={
-            //     !unseenText ||
-            //     (manualWords === '' &&
-            //         Object.keys(activeWordLists).length === 0)
-            // }
-        >
+            disabled={!unseenText || isWordListTextFieldEmpty()}>
             <SearchIcon sx={sxStyles.icon} />
             Find Words
         </Button>

@@ -12,6 +12,10 @@ const sxStyles = {
         '&:hover': {
             background: '#193798ff',
         },
+        '&:disabled': {
+            background: '#7c8dc4ff',
+            color: '#f2f2f2',
+        },
     },
 };
 

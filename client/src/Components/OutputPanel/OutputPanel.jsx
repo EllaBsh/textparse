@@ -6,10 +6,11 @@ import sxStyles from './sxStyles';
 
 const OutputPanel = ({
     highlightedText,
-    activeWordLists,
-    setactiveWordLists,
-    matches,
-    wordsFound
+    setActiveWordLists,
+    wordsFound,
+    setWordListTextValue,
+    lists,
+    setLists,
 }) => {
     return (
         <Box>
@@ -18,21 +19,20 @@ const OutputPanel = ({
                     <Typography sx={sxStyles.componentTitle}>
                         Highlighted Words in Text
                     </Typography>
-                    <Box
-                        sx={sxStyles.highlightedTextComponent}>
-                        <Box sx={sxStyles.textContainer}>
-                            {highlightedText}
-                        </Box>
+                    <Box sx={sxStyles.highlightedTextComponent}>
+                        <Box sx={sxStyles.textContainer}>{highlightedText}</Box>
                     </Box>
                     <CopyText text={highlightedText} />
                 </Box>
             </Box>
             <Box sx={sxStyles.bottomPanelsContainer}>
                 <Lists
-                    activeWordLists={activeWordLists}
-                    setactiveWordLists={setactiveWordLists}
+                    setActiveWordLists={setActiveWordLists}
+                    setWordListTextValue={setWordListTextValue}
+                    lists={lists}
+                    setLists={setLists}
                 />
-                <Links wordsFound={wordsFound}/>
+                <Links wordsFound={wordsFound} />
             </Box>
         </Box>
     );

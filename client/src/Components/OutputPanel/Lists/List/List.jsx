@@ -1,41 +1,53 @@
 import { Checkbox, FormControlLabel } from '@mui/material';
-import { WORD_FILES, loadWordsFromUrl } from '../../../../utils/getBandWords';
+import { activeListsToText, LISTS_DATA, loadWordsFromUrl } from '../../../../utils/wordListUtils';
 import sxStyles from './sxStyles';
 
 const List = ({
     listName,
     label,
     setLists,
-    setactiveWordLists,
+    setActiveWordLists,
     checked,
     color,
+    setWordListTextValue,
 }) => {
     const handleChange = async () => {
         const nextChecked = !checked;
+        setLists((prevLists) => ({
+            ...prevLists,
+            [listName]: {
+                ...prevLists[listName],
+                checked: nextChecked,
+            },
+        }));
+        setActiveWordLists((prev) => {
+            const next = { ...prev };
 
-        setLists((prevLists) =>
-            prevLists.map((list) =>
-                list.listName === listName
-                    ? { ...list, checked: nextChecked }
-                    : list
-            )
-        );
-        if (!WORD_FILES[listName]) return;
+            if (!nextChecked) {
+                delete next[listName];
+                next.manual = [];
+                setWordListTextValue(activeListsToText(next));
+                return next;
+            }
+
+            return next;
+        });
 
         if (nextChecked) {
             const words = await loadWordsFromUrl(
-                WORD_FILES[listName],
+                LISTS_DATA[listName].file,
                 listName
             );
-            setactiveWordLists((prev) => ({
-                ...prev,
-                [listName]: words,
-            }));
-        } else {
-            setactiveWordLists((prev) => {
-                const copy = { ...prev };
-                delete copy[listName];
-                return copy;
+
+            setActiveWordLists((prev) => {
+                const next = {
+                    ...prev,
+                    [listName]: words,
+                    manual: [],
+                };
+
+                setWordListTextValue(activeListsToText(next));
+                return next;
             });
         }
     };

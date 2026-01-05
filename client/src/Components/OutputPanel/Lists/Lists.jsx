@@ -1,27 +1,14 @@
 import { Box, FormControl, FormGroup, Typography } from '@mui/material';
-import { useMemo, useState } from 'react';
+import { LISTS_DATA } from '../../../utils/wordListUtils';
 import List from './List/List';
 import sxStyles from './sxStyles';
 
-const Lists = ({ activeWordLists, setactiveWordLists }) => {
-    const [lists, setLists] = useState([
-        { listName: 'preBand', checked: false, color: 'red' },
-        { listName: 'bandI', checked: false, color: 'orange' },
-        { listName: 'bandII', checked: false, color: 'yellow' },
-        { listName: 'bandIII', checked: false, color: 'green' },
-        { listName: 'listA', checked: false, color: 'light blue' },
-        { listName: 'listB', checked: false, color: 'blue' },
-        { listName: 'listC', checked: false, color: 'purple' },
-        { listName: 'listD', checked: false, color: 'pink' },
-    ]);
-
-    const listMap = useMemo(() => {
-        return lists.reduce((acc, list) => {
-            acc[list.listName] = list;
-            return acc;
-        }, {});
-    }, [lists]);
-
+const Lists = ({
+    setActiveWordLists,
+    setWordListTextValue,
+    lists,
+    setLists,
+}) => {
     return (
         <Box sx={sxStyles.listsComponent}>
             <Typography sx={sxStyles.componentTitle}>Lists</Typography>
@@ -33,33 +20,37 @@ const Lists = ({ activeWordLists, setactiveWordLists }) => {
                                 listName={'preBand'}
                                 label={'Pre Band'}
                                 setLists={setLists}
-                                setactiveWordLists={setactiveWordLists}
-                                checked={listMap.preBand?.checked}
-                                color={listMap.preBand?.color}
+                                setActiveWordLists={setActiveWordLists}
+                                checked={lists.preBand.checked}
+                                color={LISTS_DATA.preBand?.color}
+                                setWordListTextValue={setWordListTextValue}
                             />
                             <List
                                 listName={'bandI'}
                                 label={'Band I Words'}
                                 setLists={setLists}
-                                setactiveWordLists={setactiveWordLists}
-                                checked={listMap.bandI?.checked}
-                                color={listMap.bandI?.color}
+                                setActiveWordLists={setActiveWordLists}
+                                checked={lists.bandI?.checked}
+                                color={LISTS_DATA.bandI?.color}
+                                setWordListTextValue={setWordListTextValue}
                             />
                             <List
                                 listName={'bandII'}
                                 label={'Band II Words'}
                                 setLists={setLists}
-                                setactiveWordLists={setactiveWordLists}
-                                checked={listMap.bandII?.checked}
-                                color={listMap.bandII?.color}
+                                setActiveWordLists={setActiveWordLists}
+                                checked={lists.bandII?.checked}
+                                color={LISTS_DATA.bandII?.color}
+                                setWordListTextValue={setWordListTextValue}
                             />
                             <List
                                 listName={'bandIII'}
                                 label={'Band III Words'}
                                 setLists={setLists}
-                                setactiveWordLists={setactiveWordLists}
-                                checked={listMap.bandIII?.checked}
-                                color={listMap.bandIII?.color}
+                                setActiveWordLists={setActiveWordLists}
+                                checked={lists.bandIII?.checked}
+                                color={LISTS_DATA.bandIII?.color}
+                                setWordListTextValue={setWordListTextValue}
                             />
                         </FormGroup>
                         <FormGroup sx={sxStyles.secondRowContainer}>
@@ -68,17 +59,19 @@ const Lists = ({ activeWordLists, setactiveWordLists }) => {
                                     listName={'listA'}
                                     label={'List A'}
                                     setLists={setLists}
-                                    setactiveWordLists={setactiveWordLists}
-                                    checked={listMap.listA?.checked}
-                                    color={listMap.listA?.color}
+                                    setActiveWordLists={setActiveWordLists}
+                                    checked={lists.listA?.checked}
+                                    color={LISTS_DATA.listA?.color}
+                                    setWordListTextValue={setWordListTextValue}
                                 />
                                 <List
                                     listName={'listB'}
                                     label={'List B'}
                                     setLists={setLists}
-                                    setactiveWordLists={setactiveWordLists}
-                                    checked={listMap.listB?.checked}
-                                    color={listMap.listB?.color}
+                                    setActiveWordLists={setActiveWordLists}
+                                    checked={lists.listB?.checked}
+                                    color={LISTS_DATA.listB?.color}
+                                    setWordListTextValue={setWordListTextValue}
                                 />
                             </FormGroup>
                             <FormGroup row>
@@ -86,17 +79,19 @@ const Lists = ({ activeWordLists, setactiveWordLists }) => {
                                     listName={'listC'}
                                     label={'List C'}
                                     setLists={setLists}
-                                    setactiveWordLists={setactiveWordLists}
-                                    checked={listMap.listC?.checked}
-                                    color={listMap.listC?.color}
+                                    setActiveWordLists={setActiveWordLists}
+                                    checked={lists.listC?.checked}
+                                    color={LISTS_DATA.listC?.color}
+                                    setWordListTextValue={setWordListTextValue}
                                 />
                                 <List
                                     listName={'listD'}
                                     label={'List D'}
                                     setLists={setLists}
-                                    setactiveWordLists={setactiveWordLists}
-                                    checked={listMap.listD?.checked}
-                                    color={listMap.listD?.color}
+                                    setActiveWordLists={setActiveWordLists}
+                                    checked={lists.listD?.checked}
+                                    color={LISTS_DATA.listD?.color}
+                                    setWordListTextValue={setWordListTextValue}
                                 />
                             </FormGroup>
                         </FormGroup>

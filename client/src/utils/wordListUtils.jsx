@@ -7,15 +7,15 @@ import listC from '../Assets/BandWords/listC.txt';
 import listD from '../Assets/BandWords/listD.txt';
 import preBand from '../Assets/BandWords/preBand.txt';
 
-export const WORD_FILES = {
-    preBand,
-    bandI,
-    bandII,
-    bandIII,
-    listA,
-    listB,
-    listC,
-    listD,
+export const LISTS_DATA = {
+    preBand: { file: preBand, color: 'hotpink' },
+    bandI: { file: bandI, color: 'orange' },
+    bandII: { file: bandII, color: 'yellow' },
+    bandIII: { file: bandIII, color: 'green' },
+    listA: { file: listA, color: 'lightblue' },
+    listB: { file: listB, color: 'blue' },
+    listC: { file: listC, color: 'purple' },
+    listD: { file: listD, color: 'pink' },
 };
 const parseWords = (text) =>
     text
@@ -39,3 +39,15 @@ export const loadWordsFromUrl = async (url, listName) => {
 
     return words;
 };
+
+export const parseManual = (value) =>
+    value
+        .split(',')
+        .map((w) => w.trim())
+        .filter(Boolean);
+
+export const activeListsToText = (activeWordLists) =>
+    Object.entries(activeWordLists)
+        .filter(([key]) => key !== 'manual')
+        .flatMap(([, words]) => words)
+        .join(', ');

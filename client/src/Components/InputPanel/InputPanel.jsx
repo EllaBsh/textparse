@@ -1,6 +1,6 @@
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { Box, TextField, Tooltip, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { parseManual } from '../../utils/wordListUtils';
 import ClearText from '../Buttons/ClearText/ClearText';
 import CopyText from '../Buttons/CopyText/CopyText';
 import FindInText from '../Buttons/FindInText/FindInText';
@@ -10,21 +10,43 @@ import sxStyles from './sxStyles';
 const InputPanel = ({
     unseenText,
     setUnseenText,
-    manualWords,
-    setManualWords,
     activeWordLists,
     setHighlightedText,
     wordListTextValue,
-    handleWordListTextChange,
+    setWordListTextValue,
+    setActiveWordLists,
     matches,
     setMatches,
-    setWordsFound
+    setWordsFound,
+    setLists,
 }) => {
-    const [draftText, setDraftText] = useState('');
+    const handleWordListTextChange = (event) => {
+        const value = event.target.value;
+        setWordListTextValue(value);
 
-    useEffect(() => {
-        setDraftText(wordListTextValue);
-    }, [wordListTextValue]);
+        const words = parseManual(value);
+
+        if (words.length === 0) {
+            setLists((prev) =>
+                Object.fromEntries(
+                    Object.entries(prev).map(([key, obj]) => [
+                        key,
+                        { ...obj, checked: false },
+                    ])
+                )
+            );
+
+            setActiveWordLists({ manual: [] });
+            return;
+        }
+
+        setActiveWordLists((prev) => ({
+            ...prev,
+            manual: parseManual(event.target.value),
+        }));
+
+        setWordListTextValue(event.target.value);
+    };
 
     return (
         <Box sx={sxStyles.inputPanel}>
@@ -60,21 +82,21 @@ const InputPanel = ({
                     multiline
                     rows={5}
                     placeholder='Enter words separated by commas (e.g., Austen, Woolf, Christie)'
-                    value={draftText}
-                    onChange={(event) => setDraftText(event.target.value)}
-                    onBlur={() => {
-                        handleWordListTextChange(draftText);
-                    }}
+                    value={wordListTextValue}
+                    onChange={(event) => handleWordListTextChange(event)}
                     sx={sxStyles.wordListTextField}
                 />
                 <Box sx={sxStyles.buttonsContainer}>
                     <Box sx={sxStyles.actionButtonsContainer}>
-                        <ClearText setText={setManualWords} />
-                        <CopyText text={manualWords} />
+                        <ClearText
+                            setText={setWordListTextValue}
+                            setActiveWordLists={setActiveWordLists}
+                            setLists={setLists}
+                        />
+                        <CopyText text={wordListTextValue} />
                     </Box>
                     <FindInText
                         unseenText={unseenText}
-                        manualWords={manualWords}
                         activeWordLists={activeWordLists}
                         setHighlightedText={setHighlightedText}
                         matches={matches}

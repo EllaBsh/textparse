@@ -1,24 +1,29 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useWordSegments } from '../../utils/useWordSegments';
 import InputPanel from '../InputPanel/InputPanel';
 import OutputPanel from '../OutputPanel/OutputPanel';
 import sxStyles from './sxStyles';
 
 const AppWrapper = () => {
     const [unseenText, setUnseenText] = useState('');
-    const [manualWords, setManualWords] = useState('');
-    const [activeWordLists, setactiveWordLists] = useState({});
-    const [highlightedText, setHighlightedText] = useState(null);
-    const { wordListTextValue, handleWordListTextChange } = useWordSegments({
-        manualWords,
-        setManualWords,
-        activeWordLists,
-        setactiveWordLists,
+    const [wordListTextValue, setWordListTextValue] = useState('');
+    const [activeWordLists, setActiveWordLists] = useState({
+        manual: [],
     });
+    const [highlightedText, setHighlightedText] = useState(null);
     const [matches, setMatches] = useState({});
     const [wordsFound, setWordsFound] = useState([]);
+    const [lists, setLists] = useState({
+        preBand: { checked: false },
+        bandI: { checked: false },
+        bandII: { checked: false },
+        bandIII: { checked: false },
+        listA: { checked: false },
+        listB: { checked: false },
+        listC: { checked: false },
+        listD: { checked: false },
+    });
 
     return (
         <Box sx={sxStyles.wrapper}>
@@ -33,23 +38,24 @@ const AppWrapper = () => {
                     <InputPanel
                         unseenText={unseenText}
                         setUnseenText={setUnseenText}
-                        manualWords={manualWords}
-                        setManualWords={setManualWords}
                         activeWordLists={activeWordLists}
                         setHighlightedText={setHighlightedText}
                         wordListTextValue={wordListTextValue}
-                        handleWordListTextChange={handleWordListTextChange}
+                        setWordListTextValue={setWordListTextValue}
+                        setActiveWordLists={setActiveWordLists}
                         matches={matches}
                         setMatches={setMatches}
                         setWordsFound={setWordsFound}
+                        setLists={setLists}
                     />
                 </Box>
                 <OutputPanel
                     highlightedText={highlightedText}
-                    activeWordLists={activeWordLists}
-                    setactiveWordLists={setactiveWordLists}
-                    matches={matches}
+                    setActiveWordLists={setActiveWordLists}
                     wordsFound={wordsFound}
+                    setWordListTextValue={setWordListTextValue}
+                    lists={lists}
+                    setLists={setLists}
                 />
             </Box>
         </Box>

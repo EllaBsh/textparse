@@ -1,13 +1,4 @@
-const LIST_COLORS = {
-    preBand: 'red',
-    bandI: 'orange',
-    bandII: 'yellow',
-    bandIII: 'green',
-    listA: 'light blue',
-    listB: 'blue',
-    listC: 'purple',
-    listD: 'pink',
-};
+import { LISTS_DATA } from './wordListUtils';
 
 const sortWordList = (wordList) => {
     return [...wordList].sort((a, b) => {
@@ -45,7 +36,7 @@ const highlightWord = (word, listName) => {
         <mark
             key={`${listName}-${word}`}
             style={{
-                backgroundColor: LIST_COLORS[listName] || '#ffd54f',
+                backgroundColor: LISTS_DATA.listName.color || '#ffd54f',
                 padding: '0 .063rem',
                 borderRadius: '.188rem',
             }}>

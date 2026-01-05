@@ -17,7 +17,7 @@ export const useWordSegments = ({
         return [...listSegments, { source: 'manual', text: manualWords }];
     }, [manualWords, activeWordLists]);
 
-    const textValue = useMemo(() => {
+    const wordListTextValue = useMemo(() => {
         const listText = Object.values(activeWordLists)
             .map((words) => words.join(', '))
             .filter(Boolean)
@@ -26,7 +26,7 @@ export const useWordSegments = ({
         return [manualWords, listText].filter(Boolean).join(', ');
     }, [manualWords, activeWordLists]);
 
-    const handleTextChange = useCallback(
+    const handleWordListTextChange = useCallback(
         (value) => {
             const parts = value.split('\n');
 
@@ -54,7 +54,7 @@ export const useWordSegments = ({
     );
 
     return {
-        textValue,
-        handleTextChange,
+        wordListTextValue,
+        handleWordListTextChange,
     };
 };

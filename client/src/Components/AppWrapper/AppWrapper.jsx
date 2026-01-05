@@ -10,13 +10,14 @@ const AppWrapper = () => {
     const [unseenText, setUnseenText] = useState('');
     const [manualWords, setManualWords] = useState('');
     const [activeWordLists, setactiveWordLists] = useState({});
-    const [highlightedText, setHighlightedText] = useState('');
-    const { textValue, handleTextChange } = useWordSegments({
+    const [highlightedText, setHighlightedText] = useState(null);
+    const { wordListTextValue, handleWordListTextChange } = useWordSegments({
         manualWords,
         setManualWords,
         activeWordLists,
         setactiveWordLists,
     });
+    const [matches, setMatches] = useState({});
 
     return (
         <Box sx={sxStyles.wrapper}>
@@ -35,15 +36,17 @@ const AppWrapper = () => {
                         setManualWords={setManualWords}
                         activeWordLists={activeWordLists}
                         setHighlightedText={setHighlightedText}
-                        textValue={textValue}
-                        handleTextChange={handleTextChange}
+                        wordListTextValue={wordListTextValue}
+                        handleWordListTextChange={handleWordListTextChange}
+                        matches={matches}
+                        setMatches={setMatches}
                     />
                 </Box>
                 <OutputPanel
                     highlightedText={highlightedText}
-                    setHighlightedText={setHighlightedText}
                     activeWordLists={activeWordLists}
                     setactiveWordLists={setactiveWordLists}
+                    matches={matches}
                 />
             </Box>
         </Box>

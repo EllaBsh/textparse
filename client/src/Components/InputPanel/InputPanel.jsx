@@ -1,11 +1,11 @@
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { Box, TextField, Tooltip, Typography } from '@mui/material';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ClearText from '../Buttons/ClearText/ClearText';
 import CopyText from '../Buttons/CopyText/CopyText';
+import FindInText from '../Buttons/FindInText/FindInText';
 import UnseenTextField from '../UnseenTextField/UnseenTextField';
 import sxStyles from './sxStyles';
-import FindInText from '../Buttons/FindInText/FindInText';
 
 const InputPanel = ({
     unseenText,
@@ -14,14 +14,16 @@ const InputPanel = ({
     setManualWords,
     activeWordLists,
     setHighlightedText,
-    textValue,
-    handleTextChange,
+    wordListTextValue,
+    handleWordListTextChange,
+    matches,
+    setMatches,
 }) => {
     const [draftText, setDraftText] = useState('');
 
     useEffect(() => {
-        setDraftText(textValue);
-    }, [textValue]);
+        setDraftText(wordListTextValue);
+    }, [wordListTextValue]);
 
     return (
         <Box sx={sxStyles.inputPanel}>
@@ -60,7 +62,7 @@ const InputPanel = ({
                     value={draftText}
                     onChange={(event) => setDraftText(event.target.value)}
                     onBlur={() => {
-                        handleTextChange(draftText);
+                        handleWordListTextChange(draftText);
                     }}
                     sx={sxStyles.wordListTextField}
                 />
@@ -72,7 +74,10 @@ const InputPanel = ({
                     <FindInText
                         unseenText={unseenText}
                         manualWords={manualWords}
+                        activeWordLists={activeWordLists}
                         setHighlightedText={setHighlightedText}
+                        matches={matches}
+                        setMatches={setMatches}
                     />
                 </Box>
             </Box>

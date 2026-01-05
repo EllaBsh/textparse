@@ -3,12 +3,13 @@ import UnseenTextField from '../UnseenTextField/UnseenTextField';
 import Links from './Links/Links';
 import Lists from './Lists/Lists';
 import sxStyles from './sxStyles';
+import CopyText from '../Buttons/CopyText/CopyText';
 
 const OutputPanel = ({
     highlightedText,
-    setHighlightedText,
     activeWordLists,
     setactiveWordLists,
+    matches
 }) => {
     return (
         <Box>
@@ -17,11 +18,13 @@ const OutputPanel = ({
                     <Typography sx={sxStyles.componentTitle}>
                         Highlighted Words in Text
                     </Typography>
-                    <UnseenTextField
-                        isInput={false}
-                        unseenText={highlightedText}
-                        setUnseenText={setHighlightedText}
-                    />
+                    <Box
+                        sx={sxStyles.highlightedTextComponent}>
+                        <Box sx={sxStyles.textContainer}>
+                            {highlightedText}
+                        </Box>
+                    </Box>
+                    <CopyText text={highlightedText} />
                 </Box>
             </Box>
             <Box sx={sxStyles.bottomPanelsContainer}>
@@ -29,7 +32,7 @@ const OutputPanel = ({
                     activeWordLists={activeWordLists}
                     setactiveWordLists={setactiveWordLists}
                 />
-                <Links />
+                <Links matches={matches}/>
             </Box>
         </Box>
     );

@@ -4,7 +4,7 @@ const sxStyles = {
         width: 'fit-content',
         height: 'fit-content',
         borderRadius: '1rem',
-        padding: '1.2rem',
+        padding: '1.2rem 1.2rem .95rem 1.2rem',
         display: 'flex',
         flexDirection: 'column',
         boxShadow: '0 0 .2rem #cbcacaff',
@@ -31,6 +31,11 @@ const sxStyles = {
     textContainer: {
         padding: '1.031rem .875rem',
         whiteSpace: 'pre-wrap',
+    },
+    actionButtonsContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     bottomPanelsContainer: {
         marginTop: '1rem',

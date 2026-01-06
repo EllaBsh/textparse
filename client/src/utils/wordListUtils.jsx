@@ -9,13 +9,13 @@ import preBand from '../Assets/BandWords/preBand.txt';
 
 export const LISTS_DATA = {
     preBand: { file: preBand, color: '#1976D2' },
-    bandI: { file: bandI, color: 'orange' },
-    bandII: { file: bandII, color: 'yellow' },
+    bandI: { file: bandI, color: '#FFA500' },
+    bandII: { file: bandII, color: '#FFFF00' },
     bandIII: { file: bandIII, color: '#0ea00eff' },
-    listA: { file: listA, color: 'lightblue' },
-    listB: { file: listB, color: 'hotpink' },
-    listC: { file: listC, color: 'purple' },
-    listD: { file: listD, color: 'pink' },
+    listA: { file: listA, color: '#ADD8E6' },
+    listB: { file: listB, color: '#FF69B4' },
+    listC: { file: listC, color: '#b701b7ff' },
+    listD: { file: listD, color: '#FFC0CB' },
 };
 const parseWords = (text) =>
     text

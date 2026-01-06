@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import CopyText from '../Buttons/CopyText/CopyText';
+import DownloadFile from '../Buttons/FileActions/DownloadFile';
 import Links from './Links/Links';
 import Lists from './Lists/Lists';
 import sxStyles from './sxStyles';
@@ -22,7 +23,10 @@ const OutputPanel = ({
                     <Box sx={sxStyles.highlightedTextComponent}>
                         <Box sx={sxStyles.textContainer}>{highlightedText}</Box>
                     </Box>
-                    <CopyText text={highlightedText} />
+                    <Box sx={sxStyles.actionButtonsContainer}>
+                        <CopyText text={highlightedText} />
+                        <DownloadFile highlightedText={highlightedText}/>
+                    </Box>
                 </Box>
             </Box>
             <Box sx={sxStyles.bottomPanelsContainer}>

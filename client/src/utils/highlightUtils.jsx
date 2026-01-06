@@ -1,3 +1,4 @@
+import { renderToStaticMarkup } from 'react-dom/server';
 import { LISTS_DATA } from './wordListUtils';
 
 const sortWordList = (wordList) => {
@@ -110,3 +111,10 @@ export const highlightWordsInText = (text, matches) => {
     result.push(text.slice(cursor));
     return result;
 };
+
+export const highlightedToHtml = (highlightedContent) =>
+    highlightedContent
+        .map((part) =>
+            typeof part === 'string' ? part : renderToStaticMarkup(part)
+        )
+        .join('');

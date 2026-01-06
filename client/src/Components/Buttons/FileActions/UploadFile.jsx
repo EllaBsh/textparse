@@ -31,7 +31,7 @@ const UploadFile = ({ setUnseenText }) => {
                 disableRipple
                 disableFocusRipple>
                 <FileUploadOutlinedIcon sx={sxStyles.icon} />
-                Upload Text File
+                Upload Text / Docx File
             </Button>
             <input
                 onChange={handleChange}

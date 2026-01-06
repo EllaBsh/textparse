@@ -1,13 +1,37 @@
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import { Button } from '@mui/material';
+import { Box, Button, MenuItem, Select } from '@mui/material';
 import sxStyles from './sxStyles';
+import { useState } from 'react';
+import { downloadAsDOCX, downloadAsPDF } from '../../../utils/downloadUtils';
 
-const DownloadFile = () => {
+const DownloadFile = ({ highlightedText }) => {
+    const [format, setFormat] = useState('pdf');
+
     return (
-        <Button sx={sxStyles.button} disableRipple disableFocusRipple>
-            <FileDownloadOutlinedIcon sx={sxStyles.icon} />
-            Download as PDF/docx
-        </Button>
+        <Box sx={sxStyles.container}>
+            <Button
+                onClick={() => {
+                    format === 'pdf'
+                        ? downloadAsPDF(highlightedText)
+                        : downloadAsDOCX(highlightedText);
+                }}
+                sx={sxStyles.button}
+                disableRipple
+                disableFocusRipple
+                disabled={!highlightedText}>
+                <FileDownloadOutlinedIcon sx={sxStyles.icon} />
+                Download as
+            </Button>
+            <Select
+                value={format}
+                onChange={(e) => setFormat(e.target.value)}
+                variant='standard'
+                sx={sxStyles.select}
+                disabled={!highlightedText}>
+                <MenuItem value={'pdf'}>PDF</MenuItem>
+                <MenuItem value={'docx'}>Docx</MenuItem>
+            </Select>
+        </Box>
     );
 };
 

@@ -56,6 +56,7 @@ const AppWrapper = () => {
                     setWordListTextValue={setWordListTextValue}
                     lists={lists}
                     setLists={setLists}
+                    matches={matches}
                 />
             </Box>
         </Box>

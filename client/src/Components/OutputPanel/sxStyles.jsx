@@ -30,6 +30,7 @@ const sxStyles = {
     },
     textContainer: {
         padding: '1.031rem .875rem',
+        whiteSpace: 'pre-wrap',
     },
     bottomPanelsContainer: {
         marginTop: '1rem',

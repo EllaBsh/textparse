@@ -14,6 +14,7 @@ export const findInText = (text, activeWordLists) => {
     const matches = {};
     const wordsFound = [];
     const updatedActiveLists = isolateManual(activeWordLists);
+
     for (const [listName, wordList] of Object.entries(updatedActiveLists)) {
         const sortedList = sortWordList(wordList);
         for (const word of sortedList) {

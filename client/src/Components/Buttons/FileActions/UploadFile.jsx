@@ -11,7 +11,8 @@ const UploadFile = ({ setUnseenText }) => {
         const fileType = file.name.split('.').pop().toLowerCase();
         try {
             if (fileType === 'txt') {
-                setUnseenText(file.text());
+                const text = await file.text();
+                setUnseenText(text);
             } else if (fileType === 'docx') {
                 const arrayBuffer = await file.arrayBuffer();
                 const result = await mammoth.extractRawText({ arrayBuffer });

@@ -67,7 +67,6 @@ const InputPanel = ({
                     </Tooltip>
                 </Box>
                 <UnseenTextField
-                    isInput={true}
                     unseenText={unseenText}
                     setUnseenText={setUnseenText}
                 />

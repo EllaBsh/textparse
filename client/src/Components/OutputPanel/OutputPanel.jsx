@@ -7,8 +7,8 @@ import sxStyles from './sxStyles';
 
 const OutputPanel = ({
     highlightedText,
+    matches,
     setActiveWordLists,
-    wordsFound,
     setWordListTextValue,
     lists,
     setLists,
@@ -25,7 +25,7 @@ const OutputPanel = ({
                     </Box>
                     <Box sx={sxStyles.actionButtonsContainer}>
                         <CopyText text={highlightedText} />
-                        <DownloadFile highlightedText={highlightedText}/>
+                        <DownloadFile highlightedText={highlightedText} />
                     </Box>
                 </Box>
             </Box>
@@ -36,7 +36,7 @@ const OutputPanel = ({
                     lists={lists}
                     setLists={setLists}
                 />
-                <Links wordsFound={wordsFound} />
+                <Links matches={matches}/>
             </Box>
         </Box>
     );

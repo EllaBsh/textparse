@@ -1,8 +1,8 @@
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { Box, Button, MenuItem, Select } from '@mui/material';
-import sxStyles from './sxStyles';
 import { useState } from 'react';
 import { downloadAsDOCX, downloadAsPDF } from '../../../utils/downloadUtils';
+import sxStyles from './sxStyles';
 
 const DownloadFile = ({ highlightedText }) => {
     const [format, setFormat] = useState('pdf');

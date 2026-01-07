@@ -11,13 +11,10 @@ const InputPanel = ({
     unseenText,
     setUnseenText,
     activeWordLists,
-    setHighlightedText,
+    setActiveWordLists,
     wordListTextValue,
     setWordListTextValue,
-    setActiveWordLists,
-    matches,
-    setMatches,
-    setWordsFound,
+    setOutputValues,
     setLists,
 }) => {
     const handleWordListTextChange = (event) => {
@@ -97,10 +94,7 @@ const InputPanel = ({
                     <FindInText
                         unseenText={unseenText}
                         activeWordLists={activeWordLists}
-                        setHighlightedText={setHighlightedText}
-                        matches={matches}
-                        setMatches={setMatches}
-                        setWordsFound={setWordsFound}
+                        setOutputValues={setOutputValues}
                     />
                 </Box>
             </Box>

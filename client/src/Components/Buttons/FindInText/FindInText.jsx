@@ -9,26 +9,14 @@ import sxStyles from './sxStyles';
 const FindInText = ({
     unseenText,
     activeWordLists,
-    setHighlightedText,
-    matches,
-    setMatches,
-    setWordsFound,
+    setOutputValues,
 }) => {
-    const getUniqueWords = () => {
-        const wordsFound = new Set([]);
-        for (const [wordList] of Object.values(matches)) {
-            for (const word of wordList) {
-                wordsFound.add(word);
-            }
-        }
-        return [...wordsFound];
-    };
-
     const handleClick = () => {
         const tempMatches = findInText(unseenText, activeWordLists);
-        setMatches(tempMatches);
-        setHighlightedText(highlightWordsInText(unseenText, tempMatches));
-        setWordsFound(getUniqueWords());
+        setOutputValues({
+            highlightedText: highlightWordsInText(unseenText, tempMatches),
+            matches: tempMatches,
+        });
     };
     const isWordListTextFieldEmpty = () => {
         if (!activeWordLists.manual || activeWordLists.manual.length > 0) {

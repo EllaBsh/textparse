@@ -11,9 +11,10 @@ const AppWrapper = () => {
     const [activeWordLists, setActiveWordLists] = useState({
         manual: [],
     });
-    const [highlightedText, setHighlightedText] = useState(null);
-    const [matches, setMatches] = useState({});
-    const [wordsFound, setWordsFound] = useState([]);
+    const [outputValues, setOutputValues] = useState({
+        highlightedText: null,
+        matches: {},
+    });
     const [lists, setLists] = useState({
         preBand: { checked: false },
         bandI: { checked: false },
@@ -39,24 +40,20 @@ const AppWrapper = () => {
                         unseenText={unseenText}
                         setUnseenText={setUnseenText}
                         activeWordLists={activeWordLists}
-                        setHighlightedText={setHighlightedText}
+                        setActiveWordLists={setActiveWordLists}
                         wordListTextValue={wordListTextValue}
                         setWordListTextValue={setWordListTextValue}
-                        setActiveWordLists={setActiveWordLists}
-                        matches={matches}
-                        setMatches={setMatches}
-                        setWordsFound={setWordsFound}
+                        setOutputValues={setOutputValues}
                         setLists={setLists}
                     />
                 </Box>
                 <OutputPanel
-                    highlightedText={highlightedText}
+                    highlightedText={outputValues.highlightedText}
+                    matches={outputValues.matches}
                     setActiveWordLists={setActiveWordLists}
-                    wordsFound={wordsFound}
                     setWordListTextValue={setWordListTextValue}
                     lists={lists}
                     setLists={setLists}
-                    matches={matches}
                 />
             </Box>
         </Box>

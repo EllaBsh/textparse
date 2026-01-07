@@ -33,7 +33,7 @@ const Links = ({ matches }) => {
                 Words Found in Text
             </Typography>
             <Box sx={sxStyles.textField}>
-                <Box sx={{ padding: '16.5px 14px' }}>
+                <Box sx={sxStyles.wordList}>
                     {words.map((word, i) => link(word, i === words.length - 1))}
                 </Box>
             </Box>

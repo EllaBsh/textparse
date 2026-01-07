@@ -24,6 +24,9 @@ const sxStyles = {
         overflow: 'auto',
         lineHeight: '1.5rem',
     },
+    wordList: {
+        padding: '1.031rem .875rem',
+    },
 };
 
 export default sxStyles;
